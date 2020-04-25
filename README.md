@@ -2,7 +2,7 @@
 
 Il s'agit d'un jeu de ping-pong qui a été développé pour un projet scolaire.
 
-## Comment jouer ?
+## Description
 
 Vous pouvez jouer :
 * contre __une IA__ assez intelligente ou d'autres joueurs en créant un jeu __en ligne__.
