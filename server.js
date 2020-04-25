@@ -6,7 +6,7 @@ const title = process.env.TITLE || 'PingPong'
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-let chambre = Math.round(new Date().getTime() / 1000); //timestamp
+let rooms = Math.round(new Date().getTime() / 1000); //timestamp
 let player1 = null;
 let player2 = null;
 let player3 = null;
@@ -33,9 +33,9 @@ var chat = io
 
 io.on('connection', function (socket) {
     socket.on('createGame', function (data) {
-        socket.join(`${chambre}`);
+        socket.join(`${rooms}`);
         nb_player = data.nb_player;
-        socket.emit('newGame', { name: data.name, room: `${chambre}` });
+        socket.emit('newGame', { name: data.name, room: `${rooms}` });
         player1 = {
             name: data.name,
             position: 1
@@ -43,7 +43,7 @@ io.on('connection', function (socket) {
     })
 
     socket.on('joinGame', function (data) {
-        let room = io.nsps['/'].adapter.chambre[data.room];
+        let room = io.nsps['/'].adapter.rooms[data.room];
         if (nb_player == 2) {
             if (room && room.length === 1) {
                 socket.join(data.room);
