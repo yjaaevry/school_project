@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Basé sur le tuto http://www.developper-jeux-video.com/coder-jeu-video-pong-html5/
+Avec des modifs personnelles...
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<main>
+			<div id="myDiv">
+			</div>
+		</main>
+	</body>
+<script src="js/game.js"></script>
+<script src="js/game.display.js"></script>
+<script src="js/game.control.js"></script>
+<script src="js/game.keycode.js"></script>
+<script src="js/game.ai.js"></script>
+<script>
+(function () {
+	// début du code isolé
+	var requestAnimId;
+
+
+	var initialisation = function() {
+		// le code de l'initialisation
+		game.init();
+		requestAnimId = window.requestAnimationFrame(main); // premier appel de main au rafraîchissement de la page
+	}
+
+	var main = function() {
+		// le code du jeu
+		game.clearLayer(game.playersBallLayer);
+		game.clearLayer(game.scoreLayer);
+		game.movePlayers();
+		game.displayPlayers();
+		game.moveBall();
+		game.ai.move();
+		game.collideBallWithPlayersAndAction();
+		game.speedUpdate();
+		game.displayScore(game.playerOne.score, game.playerTwo.score);
+		requestAnimId = window.requestAnimationFrame(main); // rappel de main  au prochain rafraîchissement de la page
+	}
+
+	window.onload = initialisation; // appel de la fonction initialisation au chargement de la page
+	// association des méthodes aux évènements :
+	// onKeyDown = à l'appui de la touche
+	// onKeyUp = au relèvement de la touche
+	// REMPLACER PAR LES FONCTIONS INIT
+	//window.onkeydown = game.control.onKeyDown;
+	//window.onkeyup = game.control.onKeyUp;
+	//window.onmousemove = game.control.onMouseMove;
+
+	// fin du code isolé
+})();
+</script>

@@ -1,0 +1,22 @@
+{
+  "name": "pingpong_garoh",
+  "version": "1.0.0",
+  "description": "Ping pong project school",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yjaaevry/school_project.git"
+  },
+  "author": "Yassine JAA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yjaaevry/school_project/issues"
+  },
+  "homepage": "https://github.com/yjaaevry/school_project#readme"
+}

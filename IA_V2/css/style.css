@@ -1,0 +1,17 @@
+body {
+	background-color: lightgrey;
+}
+
+main {
+	position: relative;
+	margin: 50px auto;
+	width: 900px;
+	top: 60px;
+}
+
+#myDiv {
+}
+
+canvas {	
+	border-radius: 50px;
+  }

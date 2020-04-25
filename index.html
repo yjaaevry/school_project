@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Ping Pong</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <script src="./js/ball.js"></script>
+  <script src="./js/player.js"></script>
+  <script src="./js/chambre.js"></script>
+  <script src="./js/game.js"></script>
+  <script src="./js/game.display.js"></script>
+  <script src="./js/game.control.js"></script>
+  <script src="./js/game.keycode.js"></script>
+  <script src="./js/game.ia.js"></script>
+
+</head>
+ 
+<body>
+  <div class='container'>
+    <div class="menu">
+      <div id='ping-title'>
+        <h1>Ping Pong</h1>
+      </div>
+      <div id='myDiv'>
+        <div class="battle_IA">
+          <h4>Défie moi !</h4>
+          <button id="battle">Play Game</button>
+          <label for="score-select">Score pour gagner</label>
+          <select name="score" id="score-select">
+              <option value="4" checked>4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+          </select>
+        </div>
+        <div class="new_Partie">
+          <div id='nb_player_radio'>
+            <ul>
+              <li>
+                <input type="radio" id="nb_player_2" name="nb_player" value="2" checked>
+                <label for="nb_player_2">2 joueurs</label> <br />
+                <div class="check"></div>
+              </li>
+    
+              <li>
+                <input type="radio" id="nb_player_4" name="nb_player" value="4">
+                <label for="nb_player_4">4 joueurs</label>
+                <div class="check">
+                  <div class="inside"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <h4>Lancer une partie en ligne</h4>
+          <input type="text" name="name" id="nameNew" placeholder="Pseudo" required>
+          <button id="new">Nouvelle partie</button>
+        </div>
+      </div>
+      <h4>Rejoins une partie !</h4>
+      <input type="text" name="name" id="name_Join" placeholder="Pseudo" required>
+      <input type="text" name="room" id="room" placeholder="ID chambre" required>
+      <button id="join">Rejoindre</button>
+    </div>
+    <div class='main_game'>
+      <h2 id="welcome"></h2>
+      <div id='terrain'></div>
+      <div class='control_pannel'>
+        <button id='start_pannel'>Start the game</button>
+        <button id='quit_pannel'>Exit the game</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="chat">
+    <div id="chatwindow">
+      <div id="output">
+        <p id="outputmessage"></p>
+      </div>
+    </div>
+    <input type="text"
+      placeholder="Message"
+      id="message">
+    <button id="send">SEND</button>
+  </div>
+
+  <div class="layout">
+    <div class="paddle">
+      <div class="solid">
+        <div class="surface"></div>
+        <div class="hold">
+          <div class="top"></div>
+          <div class="transition"></div>
+          <div class="handle"></div>
+        </div>
+      </div>
+      <div class="wiggly">
+        <div class="string"></div>
+        <div class="ball"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./js/socket.js"></script>
+
+</body>
+
+
+
+</html>
